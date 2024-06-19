@@ -1,0 +1,37 @@
+<div class="card-body">
+  <%= form_with model: @task, local: true do |f| %>
+    <% if @task.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:
+        </h2>
+        <ul>
+          <% @task.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :title %>
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :description %>
+      <%= f.text_area :description, class: "form-control" %>
+    </p>
+    <div class="form-group">
+      <%= f.label :state %><br>
+      <%= f.select :state, %w[Backlog In-Progress Done], class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :deadline %><br>
+      <%= f.datetime_field :deadline, data: { controller: "flatpickr" }, class: "form-control" %>
+    </div>      
+    <div class="form-group">
+      <%= f.submit "Submit", class: "btn btn-success" %>
+      <%= link_to 'Back', tasks_path, class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,14 @@
+<div class="card p-2 mb-4">
+	<h6 class="card-title"><b><%= task.title.capitalize %></b></h6>
+	<p class="mb-0"><%= task.description %></p>
+	<p><%= task.deadline.strftime('%Y-%m-%d %H:%M:%S')%></p>
+	<ul class="sortable-list taskList list-unstyled ui-sortable">
+		<li class="task-warning ui-sortable-handle">
+			<p class="float-right mb-0 mt-2">
+				<%= link_to 'View', task_path(task), class:"btn btn-success btn-sm waves-effect waves-light" %>
+				<%= link_to "Edit", edit_task_path(task), class: "btn btn-primary btn-sm waves-effect waves-light" %>
+				<%= link_to "Delete", task_path(task), class: "btn btn-danger btn-sm waves-effect waves-light", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+			</p>
+		</li>
+	</ul>
+</div>

@@ -1,0 +1,31 @@
+<%= render 'header' %>
+<div class="container mt-5">
+	<div class="col-md-6 mx-md-auto">
+		<div class="card mx-auto" style="width: 20rem; text-align: center;">
+			<h5 class="card-header p-3"><b>Show Task Details</b></h5>
+		  <div class="card-body">
+		    <div class="card-text">
+		    	<p>
+					<strong>Task Title:</strong>
+					 <%= @task.title %>
+					</p>	 
+					<p>
+				    	<strong>Description:</strong>
+						<%= @task.description %>
+					</p>
+					<p>
+						<strong>Status:</strong>
+						<%= @task.state %>
+					</p>
+					<p>
+						<strong>Due Date</strong>
+						<%= @task.deadline %>
+					</p>
+		    </div>
+		    <%= link_to 'Edit', edit_task_path(@task), class: "btn btn-primary" %> &nbsp;
+        <%= link_to "Destroy", task_path(@task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %> &nbsp;
+				<%= link_to 'Back', tasks_path, class: "btn btn-primary" %>
+		  </div>
+		</div>
+	</div>	
+</div>

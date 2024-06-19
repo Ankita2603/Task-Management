@@ -1,0 +1,11 @@
+<%= render 'header' %>
+<div class="container mt-5">
+  <h1 class="text-center">New Task</h1>
+  <div class="row">
+    <div class="col-md-6 mx-md-auto align-self-center">
+      <div class="card mt-5">
+        <%= render 'form', task: @task %>
+      </div>  
+    </div>
+  </div>
+</div>

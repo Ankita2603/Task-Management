@@ -1,0 +1,30 @@
+<%= render 'header' %>
+<div class="px-5">
+  <div class= "mb-4" style="text-align: end;"><%= link_to 'New Task', new_task_path, class: 'btn btn-info py-0 px-2 h-100 mt-3' %></div>
+  <div class="content">
+    <div class="container">
+      <div class="row bg-light p-2">
+        <div class="col-lg-4 px-5">
+          <div class="card d-flex mb-2 text-light bg-secondary"><h6 class="card-title p-2 mb-0">Backlog <small>(<%= @backlog_tasks.count %>)</small></h6></div>
+          <% @backlog_tasks.each do |backlog_task| %>
+            <%= render "card", task: backlog_task %>
+          <% end %>
+        </div>
+
+        <div class="col-lg-4 px-5">
+          <div class="card d-flex mb-2 text-light bg-secondary"><h6 class="card-title p-2 mb-0">In Progress <small>(<%= @inprogress_tasks.count %>)</small></h6></div>
+          <% @inprogress_tasks.each do |inprogress_task| %>
+            <%= render "card", task: inprogress_task %>
+          <% end %>
+        </div>
+
+        <div class="col-lg-4 px-5">
+          <div class="card d-flex mb-2 text-light bg-secondary"><h6 class="card-title p-2 mb-0">Completed <small>(<%= @completed_tasks.count %>)</small></h6></div>
+          <% @completed_tasks.each do |completed_task| %>
+            <%= render "card", task: completed_task %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

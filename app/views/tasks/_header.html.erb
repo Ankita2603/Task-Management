@@ -1,0 +1,7 @@
+<div class="bg-danger text-white p-3 d-flex">
+	<h1>Task Management</h1>
+	<% if current_user %>
+		<p class="align-content-end ml-auto">User: <%= current_user.email %></p>
+		<%= button_to "logout", destroy_user_session_path, method: :delete, class: "btn btn-info py-0 mt-3 ml-2" %>
+	<% end %>
+</div>
